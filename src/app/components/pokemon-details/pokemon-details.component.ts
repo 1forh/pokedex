@@ -9,11 +9,23 @@ export class PokemonDetailsComponent implements OnChanges {
 	@Input()
 	pokemon: any;
 
-	constructor() {}
+	radarChartData: any;
+	radarChartLabels: any[];
+
+	constructor() {
+		this.radarChartLabels = [];
+		this.radarChartData = [
+			{ data: [], label: 'Base stats' }
+		];
+	}
 
 	ngOnChanges(changes) {
 		if (changes && changes.pokemon && changes.pokemon.currentValue) {
-			console.log('Pokemon: ', changes.pokemon.currentValue);
+			let stats = changes.pokemon.currentValue.stats;
+			for (let stat of stats) {
+				this.radarChartLabels.push(stat.stat.name.toUpperCase().replace(/-/, ' '));
+				this.radarChartData[0].data.push(stat.base_stat);
+			}
 		}
  	}
 

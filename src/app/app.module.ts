@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MdButtonModule, MdInputModule, MdCardModule, MdListModule, MdTabsModule, MdChipsModule } from '@angular/material';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { PokeballLoaderComponent } from './components/pokeball-loader/pokeball-loader.component';
@@ -28,7 +29,8 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
 		MdCardModule,
 		MdListModule,
 		MdTabsModule,
-		MdChipsModule
+		MdChipsModule,
+		ChartsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

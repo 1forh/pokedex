@@ -23,6 +23,12 @@
 						<md-list-item>Height: {{ pokemon.height }}</md-list-item>
 					</md-list>
 				</md-tab>
+				<md-tab label="Stats">
+					<canvas baseChart
+						[datasets]="radarChartData"
+						[labels]="radarChartLabels"
+						chartType="radar"></canvas>
+				</md-tab>
 				<md-tab label="Abilities">
 					<md-list>
 						<md-list-item *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</md-list-item>
