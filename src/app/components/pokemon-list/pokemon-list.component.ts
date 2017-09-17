@@ -11,6 +11,12 @@ export class PokemonListComponent implements OnChanges {
 
 	@Output()
 	getPokemon: EventEmitter<string> = new EventEmitter();
+
+	@Output()
+	getPreviousInList: EventEmitter<string> = new EventEmitter();
+
+	@Output()
+	getNextInList: EventEmitter<string> = new EventEmitter();
 	
 	id: string;
 	name: string;
@@ -31,4 +37,12 @@ export class PokemonListComponent implements OnChanges {
 		this.getPokemon.emit(id);
 	}
 
+	previous(offset: string) {
+		this.getPreviousInList.emit(offset);
+	}
+
+	next(offset: string) {
+		this.getNextInList.emit(offset);
+	}
+	
 }

@@ -12,8 +12,8 @@ const API_URL = 'https://pokeapi.co/api/v2';
 export class PokemonService {
 	constructor(private http: Http) {}
 
-	public getPokemonList(): Observable<any> {
-		return this.http.get(`${API_URL}/pokemon`)
+	public getPokemonList(offset: number): Observable<any> {
+		return this.http.get(`${API_URL}/pokemon/?offset=${offset}`)
 			.map((response: Response) => response.json())
 			.catch((error: any) => Observable.throw(error.json()));
 	}

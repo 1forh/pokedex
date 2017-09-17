@@ -25,11 +25,29 @@
 			<h4>{{ pokemon.name }}</h4>
 			<button
 				md-raised-button
-				class="pokemon-list__action"
 				color="primary"
 				(click)="get(pokemon.name)">
 				Get info
 			</button>
 		</md-list-item>
 	</md-list>
-</div>	
+
+	<div class="pokemon-list__actions" *ngIf="!isLoading">
+		<button
+			md-raised-button
+			class="pokemon-list__action"
+			color="primary"
+			(click)="previous(pokemonList?.previous)"
+			[disabled]="!pokemonList?.previous">
+			Previous
+		</button>
+		<button
+			md-raised-button
+			class="pokemon-list__action"
+			color="primary"
+			(click)="next(pokemonList?.next)"
+			[disabled]="!pokemonList?.next">
+			Next
+		</button>
+	</div>
+</div>

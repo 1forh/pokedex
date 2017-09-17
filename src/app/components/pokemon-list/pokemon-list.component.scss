@@ -38,7 +38,14 @@
 		}
 	}
 
-	&__action {
-		margin-left: 10px;
+	&__actions {
+		margin-top: 25px;
+
+		.mat-raised-button {
+
+			&:first-child {
+				margin-right: 10px;
+			}
+		}
 	}
 }

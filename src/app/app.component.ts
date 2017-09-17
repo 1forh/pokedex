@@ -17,12 +17,23 @@ export class AppComponent implements OnInit {
 	constructor(private pokemonService: PokemonService) {}
 
 	ngOnInit() {
-		this.getPokemonList();
+		this.getPokemonList(0);
 	}
 
-	public getPokemonList() {
-		this.pokemonService.getPokemonList()
+	public next(event) {
+		event = parseInt(event.replace('https://pokeapi.co/api/v2/pokemon/?offset=', ''));
+		this.getPokemonList(event);
+	}
+
+	public previous(event) {
+		event = parseInt(event.replace('https://pokeapi.co/api/v2/pokemon/?offset=', ''));
+		this.getPokemonList(event);
+	}
+
+	public getPokemonList(offset: number) {
+		this.pokemonService.getPokemonList(offset)
 			.subscribe((response) => {
+				console.log(response);
 				this.pokemonList = response;
 			});
 	}
@@ -33,10 +44,7 @@ export class AppComponent implements OnInit {
 			.subscribe((response) => {
 				this.pokemon = response;
 				this.isFetchingPokemon = false;
-			});
-		this.pokemonService.getPokemonSpeciesDetails(id)
-			.subscribe((response) => {
-				console.log(response);
+				console.log(this.pokemon);
 			});
 	}
 }
