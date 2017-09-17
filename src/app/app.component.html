@@ -1,25 +1,5 @@
 <div class="pokedex">
-	<div class="pokedex__search">
-		<md-form-field>
-			<input 
-				mdInput 
-				[(ngModel)]="id"
-				placeholder="Pokemon ID">
-		</md-form-field>
-		
-		<button
-			type="click"
-			md-raised-button
-			color="primary"
-			(click)="getPokemon(id)"
-			[disabled]="!id">
-			Find
-		</button>
-	</div>
-
-	<div class="pokedex__info">
-		<app-pokemon-list [pokemonList]="pokemonList" (getPokemon)="getPokemon($event)"></app-pokemon-list>
-		<app-pokeball-loader *ngIf="isFetchingPokemon === true" loaderTitle="Fetching pokemon..."></app-pokeball-loader>
-		<app-pokemon-details [pokemon]="pokemon" *ngIf="pokemon && isFetchingPokemon === false"></app-pokemon-details>
-	</div>
+	<app-pokemon-list [pokemonList]="pokemonList" (getPokemon)="getPokemon($event)"></app-pokemon-list>
+	<app-pokeball-loader *ngIf="isFetchingPokemon === true" loaderTitle="Fetching pokemon..."></app-pokeball-loader>
+	<app-pokemon-details [pokemon]="pokemon" *ngIf="pokemon && isFetchingPokemon === false"></app-pokemon-details>
 </div>

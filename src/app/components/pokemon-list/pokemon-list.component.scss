@@ -1,6 +1,42 @@
+.pokemon {
+	
+	&-search {
+		display: flex;
+		margin-bottom: 25px;
+		padding: 0 16px;
+
+		@media screen and (max-width: 735px) {
+			padding: 0 50px;
+		}
+	
+		.mat-input-container {
+			flex-grow: 1;
+		}
+	
+		.mat-raised-button {
+			margin-left: 15px;
+			max-height: 45px;
+		}
+	}
+}
+
 .pokemon-list {
 
+	@media screen and (max-width: 735px) {
+		display: none;
+	}
+
 	&__list {
-		
+		max-height: 400px;
+		overflow-y: auto;
+
+		h4 {
+			flex-grow: 1;
+			text-transform: capitalize;
+		}
+	}
+
+	&__action {
+		margin-left: 10px;
 	}
 }

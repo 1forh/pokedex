@@ -1,7 +1,9 @@
 .pokemon-details {
+	padding-left: 50px;
 
-	&__card {
-		
+	@media screen and (max-width: 735px) {
+		margin-top: 20px;
+		padding: 0 50px;
 	}
 
 	&__thumb {

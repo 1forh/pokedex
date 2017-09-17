@@ -12,14 +12,12 @@ import { PokemonService } from './services/pokemon.service';
 export class AppComponent implements OnInit {
 	pokemon: any;
 	pokemonList: any;
-	id: number;
 	isFetchingPokemon: boolean;
 
 	constructor(private pokemonService: PokemonService) {}
 
 	ngOnInit() {
 		this.getPokemonList();
-		this.id = null;
 	}
 
 	public getPokemonList() {
@@ -32,9 +30,13 @@ export class AppComponent implements OnInit {
 	public async getPokemon(id) {
 		this.isFetchingPokemon = true;
 		this.pokemonService.getPokemon(id)
-		.subscribe((response) => {
-			this.pokemon = response;
-			this.isFetchingPokemon = false;
-		});
+			.subscribe((response) => {
+				this.pokemon = response;
+				this.isFetchingPokemon = false;
+			});
+		this.pokemonService.getPokemonSpeciesDetails(id)
+			.subscribe((response) => {
+				console.log(response);
+			});
 	}
 }

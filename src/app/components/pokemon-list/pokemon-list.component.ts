@@ -13,6 +13,7 @@ export class PokemonListComponent implements OnChanges {
 	getPokemon: EventEmitter<string> = new EventEmitter();
 	
 	id: string;
+	name: string;
 
 	isLoading: boolean;
 

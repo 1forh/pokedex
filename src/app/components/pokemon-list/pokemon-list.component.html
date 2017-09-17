@@ -1,18 +1,31 @@
+<div class="pokemon-search">
+	<md-form-field>
+		<input 
+			mdInput 
+			[(ngModel)]="id"
+			placeholder="Pokemon ID">
+	</md-form-field>
+	
+	<button
+		type="click"
+		md-raised-button
+		color="primary"
+		(click)="get(id)"
+		[disabled]="!id">
+		Find
+	</button>
+</div>
+
 <div class="pokemon-list">
 	<app-pokeball-loader loaderTitle="Fetching pokemon..." *ngIf="isLoading"></app-pokeball-loader>
 	
 	<md-list class="pokemon-list__list" *ngIf="!isLoading">
 		<h3 md-subheader>Choose a Pokemon...</h3>
 		<md-list-item *ngFor="let pokemon of pokemonList?.results">
-			<div 
-				class="pokemon__thumb"
-				md-list-icon
-				md-card-avatar></div>
-			<h4>
-				{{ pokemon.name }}
-			</h4>
+			<h4>{{ pokemon.name }}</h4>
 			<button
-				md-button
+				md-raised-button
+				class="pokemon-list__action"
 				color="primary"
 				(click)="get(pokemon.name)">
 				Get info

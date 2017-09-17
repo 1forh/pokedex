@@ -23,4 +23,11 @@ export class PokemonService {
 			.map((response: Response) => response.json())
 			.catch((error: any) => Observable.throw(error.json()));
 	}
+
+	public getPokemonSpeciesDetails(id: number): Observable<any> {
+		return this.http.get(`${API_URL}/pokemon-species/${id}`)
+			.map((response: Response) => response.json())
+			.catch((error: any) => Observable.throw(error.json()));
+	}
+	
 }
