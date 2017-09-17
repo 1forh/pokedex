@@ -20,7 +20,7 @@
 	<div
 		class="app__loader"
 		*ngIf="isLoading === true">
-		Loading...
+		<app-pokeball-loader></app-pokeball-loader>
 	</div>
 	
 	<md-card class="pokemon" *ngIf="pokemon && isLoading !== true">

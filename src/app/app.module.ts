@@ -6,10 +6,12 @@ import { MdButtonModule, MdInputModule, MdCardModule } from '@angular/material';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { PokeballLoaderComponent } from './components/pokeball-loader/pokeball-loader.component';
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+		PokeballLoaderComponent
 	],
 	imports: [
 		BrowserModule,
