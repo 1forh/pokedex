@@ -1,0 +1,30 @@
+.app {
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 50px;
+
+	&__loader {
+		text-align: center;
+		color: #ccc;
+	}
+}
+
+.search {
+	margin-bottom: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.mat-raised-button {
+		margin-left: 15px;
+		max-height: 45px;
+	}
+}
+
+.pokemon {
+	margin: 0 auto;
+	max-width: 700px;
+	&__name {
+		text-align: center;
+	}
+}
