@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MdButtonModule, MdInputModule, MdCardModule, MdListModule } from '@angular/material';
+import { MdButtonModule, MdInputModule, MdCardModule, MdListModule, MdTabsModule, MdChipsModule } from '@angular/material';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -26,7 +26,9 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
 		MdButtonModule,
 		MdInputModule,
 		MdCardModule,
-		MdListModule
+		MdListModule,
+		MdTabsModule,
+		MdChipsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

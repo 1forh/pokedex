@@ -2,30 +2,38 @@
 	<md-card class="pokemon-details__card">
 		<md-card-header>
 			<div 
-				class="pokemon-details__thumb"
+				class="pokemon-details__card-thumb"
 				md-card-avatar 
 				[ngStyle]="{ 'background-image': 'url(' + pokemon.sprites.front_default + ')' }"></div>
-			<md-card-title>
-				{{ pokemon.id }}: {{ pokemon.species.name }}
+			<md-card-title class="pokemon-details__card-title">
+				<small>#{{ pokemon.id }}</small>
+				<h1>{{ pokemon.species.name }}</h1>
 			</md-card-title>
 			<md-card-subtitle>
-				Type:
-				<span *ngFor="let type of pokemon.types">{{ type.type.name }}</span>
+				<md-chip-list>
+					<md-chip *ngFor="let type of pokemon.types">{{ type.type.name }}</md-chip>
+				</md-chip-list>
 			</md-card-subtitle>
 		</md-card-header>
 		<md-card-content>
-			<div class="pokemon-details__abilities">
-				<h4>Abilities</h4>
-				<ul>
-					<li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</li>
-				</ul>
-			</div>
-			<div class="pokemon-details__moves">
-				<h4>Moves</h4>
-				<ul>
-					<li *ngFor="let move of pokemon.moves">{{ move.move.name }}</li>
-				</ul>
-			</div>
+			<md-tab-group dynamicHeight="true">
+				<md-tab label="Basic Information">
+					<md-list>
+						<md-list-item>Weight: {{ pokemon.weight }}</md-list-item>
+						<md-list-item>Height: {{ pokemon.height }}</md-list-item>
+					</md-list>
+				</md-tab>
+				<md-tab label="Abilities">
+					<md-list>
+						<md-list-item *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</md-list-item>
+					</md-list>
+				</md-tab>
+				<md-tab label="Moves">
+					<md-list>
+						<md-list-item *ngFor="let move of pokemon.moves">{{ move.move.name }}</md-list-item>
+					</md-list>
+				</md-tab>
+			</md-tab-group>
 		</md-card-content>
 	</md-card>
 </div>

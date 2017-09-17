@@ -6,12 +6,33 @@
 		padding: 0 50px;
 	}
 
-	&__thumb {
-		background-size: cover;
-		background-position: center;
+	&__card {
+
+		&-thumb {
+			width: 80px;
+			height: 80px;
+			background-size: cover;
+			background-position: center;
+		}
+
+		&-title {
+
+			small {
+				color: #BBBBBB;
+				font-size: 16px;
+			}
+			
+			h1 {
+				text-transform: capitalize;
+			}
+		}
 	}
-	
-	&__name {
-		text-align: center;
+
+	.basic-information {
+		padding-top: 25px;
+	}
+
+	.mat-chip {
+		text-transform: capitalize;
 	}
 }

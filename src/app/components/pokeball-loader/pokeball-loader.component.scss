@@ -3,6 +3,10 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	&__title {
+		margin-bottom: 15px;
+	}
 	
 	&__icon {
 		width: 50px;
