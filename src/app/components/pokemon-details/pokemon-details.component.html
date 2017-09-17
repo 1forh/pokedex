@@ -24,7 +24,9 @@
 					</md-list>
 				</md-tab>
 				<md-tab label="Stats">
-					<canvas baseChart
+					<canvas 
+						class="pokemon-details__radar-chart"
+						baseChart
 						[datasets]="radarChartData"
 						[labels]="radarChartLabels"
 						chartType="radar"></canvas>
