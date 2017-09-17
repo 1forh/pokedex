@@ -16,11 +16,10 @@
 			Find
 		</button>
 	</div>
-	
-	<app-pokeball-loader *ngIf="isLoading === true"></app-pokeball-loader>
 
 	<div class="pokedex__info">
 		<app-pokemon-list [pokemonList]="pokemonList" (getPokemon)="getPokemon($event)"></app-pokemon-list>
+		<app-pokeball-loader *ngIf="isFetchingPokemon === true" loaderTitle="Fetching pokemon..."></app-pokeball-loader>
 		<app-pokemon-details [pokemon]="pokemon" *ngIf="pokemon"></app-pokemon-details>
 	</div>
 </div>

@@ -1,9 +1,5 @@
 <div class="pokemon-details">
-	<!-- <div class="pokemon-details__loader">
-			<h4>Fetching Pokemon...</h4>
-			<app-pokeball-loader></app-pokeball-loader>
-	</div> -->
-	<md-card class="pokemon-details__card">
+	<md-card class="pokemon-details__card" *ngIf="!isLoading">
 			<md-card-header>
 				<div 
 					class="pokemon-details__thumb"

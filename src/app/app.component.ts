@@ -13,14 +13,13 @@ export class AppComponent implements OnInit {
 	pokemon: any;
 	pokemonList: any;
 	id: number;
-	isLoading: boolean;
+	isFetchingPokemon: boolean;
 
 	constructor(private pokemonService: PokemonService) {}
 
 	ngOnInit() {
 		this.getPokemonList();
 		this.id = null;
-		this.isLoading = false;
 	}
 
 	public getPokemonList() {
@@ -31,13 +30,11 @@ export class AppComponent implements OnInit {
 	}
 
 	public async getPokemon(id) {
+		this.isFetchingPokemon = true;
 		this.pokemonService.getPokemon(id)
 		.subscribe((response) => {
 			this.pokemon = response;
+			this.isFetchingPokemon = false;
 		});
 	}
-
-	// private toggleLoadingIndicator() {
-	// 	this.isLoading = !this.isLoading;
-	// }
 }

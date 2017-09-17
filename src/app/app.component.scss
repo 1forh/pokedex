@@ -20,5 +20,10 @@
 		max-width: 1040px;
 		display: grid;
 		grid-template-columns: 40% 60%;
+
+		&-loader {
+			display: flex;
+			justify-content: center;
+		}
 	}
 }

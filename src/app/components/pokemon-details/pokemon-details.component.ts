@@ -9,8 +9,6 @@ export class PokemonDetailsComponent implements OnChanges {
 	@Input()
 	pokemon: any;
 
-	isLoading: boolean;
-
 	constructor() {}
 
 	ngOnChanges(changes) {

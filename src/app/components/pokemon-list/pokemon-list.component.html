@@ -1,8 +1,5 @@
 <div class="pokemon-list">
-	<div class="pokemon-list__loader" *ngIf="isLoading">
-			<h4>Fetching Pokemon...</h4>
-			<app-pokeball-loader></app-pokeball-loader>
-	</div>
+	<app-pokeball-loader loaderTitle="Fetching pokemon..." *ngIf="isLoading"></app-pokeball-loader>
 	
 	<md-list class="pokemon-list__list" *ngIf="!isLoading">
 		<h3 md-subheader>Choose a Pokemon...</h3>
