@@ -22,25 +22,34 @@
 		*ngIf="isLoading === true">
 		<app-pokeball-loader></app-pokeball-loader>
 	</div>
-	
+
 	<md-card class="pokemon" *ngIf="pokemon && isLoading !== true">
-		<div class="pokemon__name">
-			{{ pokemon.id }}: {{ pokemon.species.name }}
-		</div>
-		<div class="pokemon__thumb">
-			<img [src]="pokemon.sprites.front_default" [alt]="pokemon.species.name">
-		</div>
-		<div class="pokemon__abilities">
-			<h4>Abilities</h4>
-			<ul>
-				<li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</li>
-			</ul>
-		</div>
-		<div class="pokemon__moves">
+		<md-card-header>
+			<div 
+				class="pokemon__thumb"
+				md-card-avatar 
+				[ngStyle]="{ 'background-image': 'url(' + pokemon.sprites.front_default + ')' }"></div>
+			<md-card-title>{{ pokemon.id }}: {{ pokemon.species.name }}</md-card-title>
+			<md-card-subtitle>
+				Type:
+				<span *ngFor="let type of pokemon.types">{{ type.type.name }}</span>
+			</md-card-subtitle>
+		</md-card-header>
+		<md-card-content>
+			<div class="pokemon__abilities">
+				<h4>Abilities</h4>
+				<ul>
+					<li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</li>
+				</ul>
+			</div>
+			<div class="pokemon__moves">
 				<h4>Moves</h4>
 				<ul>
 					<li *ngFor="let move of pokemon.moves">{{ move.move.name }}</li>
 				</ul>
 			</div>
+		</md-card-content>
+		<md-card-actions>
+			<button md-button color="primary">More</button>
+		</md-card-actions>
 	</md-card>
-</div>

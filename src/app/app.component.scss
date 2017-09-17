@@ -24,6 +24,12 @@
 .pokemon {
 	margin: 0 auto;
 	max-width: 700px;
+
+	&__thumb {
+		background-size: cover;
+		background-position: center;
+	}
+	
 	&__name {
 		text-align: center;
 	}
