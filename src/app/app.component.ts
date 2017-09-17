@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 import { PokemonService } from './services/pokemon.service';
 
@@ -10,25 +11,33 @@ import { PokemonService } from './services/pokemon.service';
 })
 export class AppComponent implements OnInit {
 	pokemon: any;
+	pokemonList: any;
 	id: number;
 	isLoading: boolean;
 
 	constructor(private pokemonService: PokemonService) {}
 
 	ngOnInit() {
+		this.getPokemonList();
 		this.id = null;
 		this.isLoading = false;
 	}
 
-	async getPokemon(id: any): Promise<any> {
-		this.toggleLoadingIndicator();
-		const response = await this.pokemonService.getPokemon(id);
-		this.pokemon = JSON.parse(response._body);
-		this.toggleLoadingIndicator();
-		console.log(this.pokemon);
+	public getPokemonList() {
+		this.pokemonService.getPokemonList()
+			.subscribe((response) => {
+				this.pokemonList = response;
+			});
 	}
 
-	private toggleLoadingIndicator() {
-		this.isLoading = !this.isLoading;
+	public async getPokemon(id) {
+		this.pokemonService.getPokemon(id)
+		.subscribe((response) => {
+			this.pokemon = response;
+		});
 	}
+
+	// private toggleLoadingIndicator() {
+	// 	this.isLoading = !this.isLoading;
+	// }
 }

@@ -1,0 +1,22 @@
+.pokemon-details {
+
+	&__loader {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__card {
+		
+	}
+
+	&__thumb {
+		background-size: cover;
+		background-position: center;
+	}
+	
+	&__name {
+		text-align: center;
+	}
+}

@@ -1,0 +1,25 @@
+<div class="pokemon-list">
+	<div class="pokemon-list__loader" *ngIf="isLoading">
+			<h4>Fetching Pokemon...</h4>
+			<app-pokeball-loader></app-pokeball-loader>
+	</div>
+	
+	<md-list class="pokemon-list__list" *ngIf="!isLoading">
+		<h3 md-subheader>Choose a Pokemon...</h3>
+		<md-list-item *ngFor="let pokemon of pokemonList?.results">
+			<div 
+				class="pokemon__thumb"
+				md-list-icon
+				md-card-avatar></div>
+			<h4>
+				{{ pokemon.name }}
+			</h4>
+			<button
+				md-button
+				color="primary"
+				(click)="get(pokemon.name)">
+				Get info
+			</button>
+		</md-list-item>
+	</md-list>
+</div>	

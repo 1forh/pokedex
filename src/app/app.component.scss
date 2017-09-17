@@ -1,36 +1,24 @@
-.app {
+.pokedex {
 	width: 100%;
 	min-height: 100vh;
 	padding-top: 50px;
 
-	&__loader {
+	&__search {
+		margin-bottom: 50px;
 		display: flex;
+		align-items: center;
 		justify-content: center;
-	}
-}
-
-.search {
-	margin-bottom: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	.mat-raised-button {
-		margin-left: 15px;
-		max-height: 45px;
-	}
-}
-
-.pokemon {
-	margin: 0 auto;
-	max-width: 700px;
-
-	&__thumb {
-		background-size: cover;
-		background-position: center;
-	}
 	
-	&__name {
-		text-align: center;
+		.mat-raised-button {
+			margin-left: 15px;
+			max-height: 45px;
+		}
+	}
+
+	&__info {
+		margin: 0 auto;
+		max-width: 1040px;
+		display: grid;
+		grid-template-columns: 40% 60%;
 	}
 }

@@ -1,10 +1,10 @@
-<div class="app">
-	<div class="search">
-		<md-form-field class="example-full-width">
+<div class="pokedex">
+	<div class="pokedex__search">
+		<md-form-field>
 			<input 
-			mdInput 
-			[(ngModel)]="id"
-			placeholder="Pokemon ID">
+				mdInput 
+				[(ngModel)]="id"
+				placeholder="Pokemon ID">
 		</md-form-field>
 		
 		<button
@@ -17,39 +17,10 @@
 		</button>
 	</div>
 	
-	<div
-		class="app__loader"
-		*ngIf="isLoading === true">
-		<app-pokeball-loader></app-pokeball-loader>
-	</div>
+	<app-pokeball-loader *ngIf="isLoading === true"></app-pokeball-loader>
 
-	<md-card class="pokemon" *ngIf="pokemon && isLoading !== true">
-		<md-card-header>
-			<div 
-				class="pokemon__thumb"
-				md-card-avatar 
-				[ngStyle]="{ 'background-image': 'url(' + pokemon.sprites.front_default + ')' }"></div>
-			<md-card-title>{{ pokemon.id }}: {{ pokemon.species.name }}</md-card-title>
-			<md-card-subtitle>
-				Type:
-				<span *ngFor="let type of pokemon.types">{{ type.type.name }}</span>
-			</md-card-subtitle>
-		</md-card-header>
-		<md-card-content>
-			<div class="pokemon__abilities">
-				<h4>Abilities</h4>
-				<ul>
-					<li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</li>
-				</ul>
-			</div>
-			<div class="pokemon__moves">
-				<h4>Moves</h4>
-				<ul>
-					<li *ngFor="let move of pokemon.moves">{{ move.move.name }}</li>
-				</ul>
-			</div>
-		</md-card-content>
-		<md-card-actions>
-			<button md-button color="primary">More</button>
-		</md-card-actions>
-	</md-card>
+	<div class="pokedex__info">
+		<app-pokemon-list [pokemonList]="pokemonList" (getPokemon)="getPokemon($event)"></app-pokemon-list>
+		<app-pokemon-details [pokemon]="pokemon" *ngIf="pokemon"></app-pokemon-details>
+	</div>
+</div>
