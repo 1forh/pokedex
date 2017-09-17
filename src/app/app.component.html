@@ -20,6 +20,6 @@
 	<div class="pokedex__info">
 		<app-pokemon-list [pokemonList]="pokemonList" (getPokemon)="getPokemon($event)"></app-pokemon-list>
 		<app-pokeball-loader *ngIf="isFetchingPokemon === true" loaderTitle="Fetching pokemon..."></app-pokeball-loader>
-		<app-pokemon-details [pokemon]="pokemon" *ngIf="pokemon"></app-pokemon-details>
+		<app-pokemon-details [pokemon]="pokemon" *ngIf="pokemon && isFetchingPokemon === false"></app-pokemon-details>
 	</div>
 </div>
