@@ -30,14 +30,6 @@ export class AppComponent implements OnInit {
 		this.getPokemonList(event);
 	}
 
-	public getPokemonList(offset: number) {
-		this.pokemonService.getPokemonList(offset)
-			.subscribe((response) => {
-				console.log(response);
-				this.pokemonList = response;
-			});
-	}
-
 	public async getPokemon(id) {
 		this.isFetchingPokemon = true;
 		this.pokemonService.getPokemon(id)
@@ -47,4 +39,13 @@ export class AppComponent implements OnInit {
 				console.log(this.pokemon);
 			});
 	}
+
+	private getPokemonList(offset: number) {
+		this.pokemonService.getPokemonList(offset)
+			.subscribe((response) => {
+				console.log(response);
+				this.pokemonList = response;
+			});
+	}
+	
 }

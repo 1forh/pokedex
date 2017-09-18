@@ -33,15 +33,15 @@ export class PokemonListComponent implements OnChanges {
 		}
 	}
 
-	get(id: string) {
+	public get(id: string) {
 		this.getPokemon.emit(id);
 	}
 
-	previous(offset: string) {
+	public previous(offset: string) {
 		this.getPreviousInList.emit(offset);
 	}
 
-	next(offset: string) {
+	public next(offset: string) {
 		this.getNextInList.emit(offset);
 	}
 	
